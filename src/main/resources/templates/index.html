@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:insert="fragments/head">
+<!-- Head fragment -->
+</head>
+<body>
+<header th:insert="fragments/header">
+<!-- Header Fragment -->
+</header>
+
+<main>
+    <div id="index-banner" class="parallax-container">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <br><br>
+                <h1 class="header center white-text">Online Education</h1>
+                <div class="row center">
+                    <h5 class="header col s12 light">For training to succeed, you need the best online learning platform</h5>
+                </div>
+                <br>
+                <div class="row center">
+                    <a th:href="@{/discover}" class="waves-effect waves-light btn-large">Let's Start</a>
+                </div>
+                <br><br>
+            </div>
+        </div>
+        <div class="parallax"><img src="/img/background2.jpg" alt="Unsplash background img 2"></div>
+    </div>
+    <div class="container">
+        <div class="section">
+
+            <!--   Icon Section   -->
+            <div class="row">
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center teal-text text-lighten-2"><i class="material-icons">devices</i></h2>
+                        <h5 class="center">Learn from anywhere</h5>
+
+                        <p class="light">Our platform is designed so that you can access it from any device,
+                            giving you the necessary tools for your learning from wherever you are.</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center teal-text text-lighten-2"><i class="material-icons">group</i></h2>
+                        <h5 class="center">A community you can count on</h5>
+
+                        <p class="light">be part of a large community of people who,
+                            just like you, seek to constantly improve their skills and
+                            acquire knowledge for this constantly evolving world.</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center teal-text text-lighten-2"><i class="material-icons">local_atm</i></h2>
+                        <h5 class="center">Prices within everyone's reach</h5>
+
+                        <p class="light">Since we focus on the fact that knowledge must be imparted under equal conditions,
+                            we are committed to providing you with quality education at very affordable prices.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <h5 class="header col s12 light">A modern technology vocational school.</h5>
+                </div>
+            </div>
+        </div>
+        <div class="parallax"><img src="/img/background1.jpg" alt="Unsplash background img 1"></div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+
+            <div class="row">
+                <div class="col s12 center">
+                    <h4>Contact us</h4>
+                    <p class="left-align light">We are a platform that is interested in the learning of all people, because we believe in the importance of
+                        providing quality content for all interested audiences, with the purpose of training great
+                        professionals and people who will be leaders in this field. <br><br>
+                        Any questions or queries you have can be communicated to us by email. <a
+                                href="mailto:contact@mosab.tech" class="teal-text">contact@mosab.tech</a>,
+                        which we will be helping you in any matters.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <h5 class="header col s12 light">Join us and be part of this great technological revolution.</h5>
+                </div>
+            </div>
+        </div>
+        <div class="parallax"><img src="/img/background3.jpg" alt="Unsplashed background img 3"></div>
+    </div>
+</main>
+
+<footer class="page-footer teal" th:insert="fragments/footer">
+<!-- Footer fragment -->
+</footer>
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="/js/materialize.js"></script>
+<script src="/js/init.js"></script>
+
+</body>
+</html>

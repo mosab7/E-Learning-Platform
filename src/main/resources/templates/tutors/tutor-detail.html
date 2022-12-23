@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:insert="fragments/head">
+
+</head>
+<body>
+<header th:insert="fragments/header">
+</header>
+
+<main>
+    <div class="container">
+        <div class="row mt-3">
+            <!-- Sidebar -->
+            <div class="col s12 m4">
+                <div class="container">
+                    <img th:if="${tutor.tutorId}" class="responsive-img circle z-depth-3" th:src="${tutor.imgUrl}">
+                    <img th:unless="${tutor.tutorId}" class="responsive-img circle z-depth-3" src="/img/instructors/instructor-stock.png">
+                </div>
+                <ul class="collapsible z-depth-3 mt-3">
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">assignment_ind
+                        </i><span>Speciality</span></div>
+                        <div class="collapsible-body"><span th:text="${tutor.tutorDescription}">Tutor Description</span></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">drafts</i>Email</div>
+                        <div class="collapsible-body"><span th:text="${tutor.tutorEmail}">Tutor Email</span></div>
+                    </li>
+                </ul>
+            </div>
+            <!-- Tutor Details -->
+            <div class="col s12 m8">
+                <div class="card z-depth-3">
+                    <div class="card-content teal lighten-2 white-text">
+                        <span class="card-title"><strong
+                                th:text="${tutor.tutorName} + ' ' + ${tutor.tutorSurname}"></strong>
+                        <span sec:authorize="hasRole('ROLE_ADMIN')">
+                                    <a th:href="@{/tutors/edit/{tutorId}
+                                    (tutorId=${tutor.tutorId})}"
+                                       class="btn-floating waves-effect waves-light btn-small yellow darken-1"><i
+                                            class="material-icons">edit</i>
+                                    </a>
+                                    </span>
+                        </span>
+                        <p th:if="${tutor.tutorDetail}">
+                            <span th:text="${tutor.tutorDetail}">Detail</span>
+                            <a sec:authorize="hasRole('ROLE_ADMIN')" class="btn-floating btn-small red lighten-1 waves-effect waves-light modal-trigger" href="#modal-detail"><i class="material-icons">edit</i></a>
+                        </p>
+                        <!-- Modal Trigger -->
+                        <p th:unless="${tutor.tutorDetail}">
+                            <a class="btn-floating btn-small red lighten-1 modal-trigger waves-effect waves-light" href="#modal-detail"><i class="material-icons">add</i></a>
+                        </p>
+                    </div>
+                    <!-- Modal Structure -->
+                    <div id="modal-detail" class="modal">
+                        <form th:action="@{/tutors/patch/{tutorId} (tutorId=${tutor.tutorId})}" th:object="${tutor}" method="post">
+
+                        <div class="modal-content">
+                            <h4 class="teal-text">Tell us about yourself</h4>
+                            <div class="input-field">
+                                <label for="detail-tutor">Detail</label>
+                                <textarea th:field="*{tutorDetail}" id="detail-tutor" class="materialize-textarea"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-close waves-effect waves-red btn-flat red-text">Cancel</a>
+                            <button type="submit" class="modal-close waves-effect waves-green btn-flat teal-text">
+                                Confirm</button>
+                        </div>
+                        </form>
+                    </div>
+                    <div class="card-action">
+                        <!-- courses -->
+                        <h5 class="teal-text mb-4">courses <span sec:authorize="hasRole('ROLE_ADMIN')">
+                            <a th:href="@{/courses/add/{tutorId} (tutorId=${tutor.tutorId})}" class="btn-floating btn-small waves-effect waves-light lighten-1"><i class="material-icons">add</i></a>
+                        </span>
+                        </h5>
+                        <div class="mb-3" th:each="course:${courses}">
+                            <a th:href="|/courses/${course.courseId}|"><strong th:text="${course.courseName}">courses</strong></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<br><br>
+<footer class="page-footer teal" th:insert="fragments/footer">
+
+</footer>
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="/js/materialize.js"></script>
+<script src="/js/init.js"></script>
+
+</body>
+</html>

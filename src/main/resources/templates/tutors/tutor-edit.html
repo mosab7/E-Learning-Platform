@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:insert="fragments/head">
+</head>
+<body>
+<header th:insert="fragments/header"></header>
+
+<main>
+    <div class="container">
+        <h3 class="center">Edit Tutor</h3>
+        <br>
+        <div class="row">
+            <div class="section col s12 l6 offset-l3">
+                <form action="#" method="post"
+                      th:object="${tutor}"
+                      th:action="@{/tutors/update/{tutorId} (tutorId=${tutor.tutorId})}"
+                >
+
+                    <div class="input-field">
+                        <label for="tutorName">Name</label>
+                        <input type="text" class="class-controller"
+                               id="tutorName"
+                               th:field="*{tutorName}" autofocus required
+                        >
+                    </div>
+
+                    <div class="input-field">
+                        <label for="tutorSurname">Surname</label>
+                        <input type="text" class="class-controller"
+                               id="tutorSurname"
+                               th:field="*{tutorSurname}" required
+                        >
+                    </div>
+
+                    <div class="input-field">
+                        <label for="tutorEmail">Email</label>
+                        <input type="text" class="class-controller"
+                               id="tutorEmail"
+                               th:field="*{tutorEmail}" required
+                        >
+                    </div>
+
+                    <div class="input-field">
+                        <label for="tutorDescription">Description</label>
+                        <input type="text" class="class-controller"
+                               id="tutorDescription"
+                               th:field="*{tutorDescription}" required
+                        >
+                    </div>
+
+                    <div class="input-field">
+                        <label for="imgUrl">Image URL</label>
+                        <input type="text" class="class-controller" id="imgUrl" th:field="*{imgUrl}" required>
+                    </div>
+
+                    <button type="submit" class="btn">Edit Tutor</button>
+                    <a th:href="|/tutors/${tutor.tutorId}|" class="btn red lighten-1">Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+<br><br>
+
+<footer class="page-footer teal" th:insert="fragments/footer">
+</footer>
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="/js/materialize.js"></script>
+<script src="/js/init.js"></script>
+</body>
+</html>

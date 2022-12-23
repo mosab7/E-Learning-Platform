@@ -1,0 +1,39 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:insert="fragments/head">
+    <title>Logout</title>
+</head>
+<body>
+<header th:insert="fragments/header"></header>
+
+<main>
+
+    <div id="index-banner" class="parallax-container">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <br><br>
+                <h1 class="header center white-text">Welcome</h1>
+                <div class="row center">
+                    <h5 class="header col s12 light">You have successfully registered.</h5>
+                </div>
+                <br>
+                <div class="row center">
+                    <a th:href="@{/login}" class="waves-effect waves-light btn-large">Log in</a>
+                </div>
+                <br><br>
+            </div>
+        </div>
+        <div class="parallax"><img src="/img/welcome.jpg" alt="Unsplash welcome img"></div>
+    </div>
+
+</main>
+
+<footer class="page-footer teal" th:insert="fragments/footer"></footer>
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="/js/materialize.js"></script>
+<script src="/js/init.js"></script>
+
+</body>
+</html>
